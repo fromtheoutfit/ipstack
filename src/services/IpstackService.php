@@ -30,6 +30,13 @@ use craft\base\Component;
  */
 class IpstackService extends Component
 {
+    private $access_key = '';
+
+    public function __construct()
+    {
+        $this->access_key = getenv('IPSTACK_ACCESS_KEY');
+    }
+
     // Public Methods
     // =========================================================================
 
