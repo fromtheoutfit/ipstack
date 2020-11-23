@@ -1,0 +1,49 @@
+{
+    "name": "fromtheoutfit/ipstack",
+    "description": "Simple custom wrapper around the ipstack api.",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "ipstack"
+    ],
+    "support": {
+        "docs": "https://github.com/fromtheoutfit/ipstack/blob/master/README.md",
+        "issues": "https://github.com/fromtheoutfit/ipstack/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "The Outfit, Inc",
+            "homepage": "https://www.theout.fit"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0"
+    },
+    "require-dev": {
+      "craftcms/cms": "^3.2.0",
+      "codeception/codeception": "^3.0",
+      "vlucas/phpdotenv": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+          "fromtheoutfit\\ipstack\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "ipstack",
+        "handle": "ipstack",
+        "developer": "The Outfit, Inc",
+        "developerUrl": "https://www.theout.fit",
+        "documentationUrl": "https://github.com/fromtheoutfit/ipstack/blob/master/README.md",
+        "changelogUrl": "https://raw.githubusercontent.com/fromtheoutfit/ipstack/master/CHANGELOG.md",
+        "components": {
+            "ipstackService": "fromtheoutfit\\ipstack\\services\\IpstackService"
+        },
+        "class": "fromtheoutfit\\ipstack\\Ipstack"
+    }
+}
