@@ -83,6 +83,39 @@ class IpstackService extends Component
         return $data;
     }
 
+    public function get()
+    {
+        $ip   = $this->getIpAddress();
+        $data = '';
+
+        // set IP address and API access key
+
+        // Initialize CURL:
+        $ch = curl_init('http://api.ipstack.com/' . $ip . '?access_key=' . $this->access_key . '');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        // Store the data:
+        $json = curl_exec($ch);
+        curl_close($ch);
+
+        // make sure we got a curl response
+        if ($json) {
+            // Decode JSON response:
+            $api_result = json_decode($json, true);
+
+            // The api only returns a success key if that key is set to false...which is fun.
+            // So we look for that key and then we look to make sure it is false
+            // and then we set the data to an empty string
+            if (array_key_exists('success', $api_result) && !$api_result['success']) {
+                $data = [];
+            } else {
+                $data = $api_result;
+            }
+        }
+
+        return $data;
+    }
+
 
     private function getIpAddress()
     {

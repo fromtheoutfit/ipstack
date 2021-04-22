@@ -49,4 +49,9 @@ class IpstackVariable
     {
         return Ipstack::$plugin->ipstackService->getCountry();
     }
+
+    public function get($optional = null)
+    {
+        return Ipstack::$plugin->ipstackService->get();
+    }
 }
