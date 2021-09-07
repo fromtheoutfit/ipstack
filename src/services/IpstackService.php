@@ -120,6 +120,9 @@ class IpstackService extends Component
         $ip   = $this->getIpAddress();
         $data = '';
 
+        print($ip);
+        print('<hr />');
+
         // set IP address and API access key
 
         // Initialize CURL:
