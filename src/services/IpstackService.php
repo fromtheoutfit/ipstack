@@ -116,11 +116,37 @@ class IpstackService extends Component
         return $data;
     }
 
+    public function debug() {
+        $ip   = $this->getIpAddress();
+        $data = '';
+
+        // set IP address and API access key
+
+        // Initialize CURL:
+        $ch = curl_init('http://api.ipstack.com/' . $ip . '?access_key=' . $this->access_key . '');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        // Store the data:
+        $json = curl_exec($ch);
+        curl_close($ch);
+
+        print($json);
+
+        // make sure we got a curl response
+        if ($json) {
+            // Decode JSON response:
+            $api_result = json_decode($json, true);
+
+            print('<hr />');
+            print_r($api_result);
+        }
+
+        return $data;
+    }
 
     private function getIpAddress()
     {
         $ip = $_SERVER['HTTP_CF_CONNECTING_IP'] ?? Craft::$app->getRequest()->getUserIP();
-        Craft::error('DebugIP: ' . $ip);
         return $ip;
     }
 }
