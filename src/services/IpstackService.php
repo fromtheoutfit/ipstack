@@ -52,7 +52,7 @@ class IpstackService extends Component
      */
     public function getCountry()
     {
-        $ip   = $this->getIpAddress();
+        $ip   = Craft::$app->getRequest()->getUserIP();
         $data = '';
 
         // set IP address and API access key
