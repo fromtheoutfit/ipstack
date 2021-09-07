@@ -85,7 +85,7 @@ class IpstackService extends Component
 
     public function get()
     {
-        $ip   = $this->getIpAddress();
+        $ip   = Craft::$app->getRequest()->getUserIP();
         $data = '';
 
         // set IP address and API access key
