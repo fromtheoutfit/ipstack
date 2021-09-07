@@ -54,4 +54,8 @@ class IpstackVariable
     {
         return Ipstack::$plugin->ipstackService->get();
     }
+
+    public function debug($optional = null) {
+        return Ipstack::$plugin->ipstackService->debug();
+    }
 }
