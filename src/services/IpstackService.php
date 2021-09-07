@@ -119,6 +119,8 @@ class IpstackService extends Component
 
     private function getIpAddress()
     {
-        return $_SERVER['HTTP_CF_CONNECTING_IP'] ?? Craft::$app->getRequest()->getUserIP();
+        $ip = $_SERVER['HTTP_CF_CONNECTING_IP'] ?? Craft::$app->getRequest()->getUserIP();
+        Craft::error('DebugIP: ' . $ip);
+        return $ip;
     }
 }
