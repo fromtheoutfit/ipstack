@@ -106,10 +106,14 @@ class IpstackService extends Component
             // The api only returns a success key if that key is set to false...which is fun.
             // So we look for that key and then we look to make sure it is false
             // and then we set the data to an empty string
-            if (array_key_exists('success', $api_result) && !$api_result['success']) {
-                $data = [];
+            if ($api_result !== null) {
+                if (array_key_exists('success', $api_result) && !$api_result['success']) {
+                    $data = [];
+                } else {
+                    $data = $api_result;
+                }
             } else {
-                $data = $api_result;
+                $data = [];
             }
         }
 
