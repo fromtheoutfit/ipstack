@@ -27,6 +27,7 @@ use craft\base\Component;
  * @author    The Outfit, Inc
  * @package   Ipstack
  * @since     1.0.0
+ * 
  */
 class IpstackService extends Component
 {
