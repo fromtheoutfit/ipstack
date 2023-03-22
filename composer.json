@@ -1,6 +1,6 @@
 {
     "name": "fromtheoutfit/ipstack",
-    "description": "Simple custom wrapper around the ipstack api.",
+    "description": "Simple custom wrapper around the ipstack api",
     "type": "craft-plugin",
     "version": "2.0.1",
     "keywords": [
